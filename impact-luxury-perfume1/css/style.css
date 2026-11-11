@@ -1,0 +1,1383 @@
+/* ==========================================================================
+   FRIDAY CHARM - PREMIUM PERFUME STORE STYLESHEET
+   Inspired by FridayCharm.com - 100% Authentic Designer & Niche Fragrances
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap');
+
+:root {
+  /* FridayCharm Luxury Brand Palette */
+  --bg-primary: #fcfcfd;
+  --bg-white: #ffffff;
+  --bg-subtle: #f5f5f7;
+  --bg-card: #ffffff;
+  --bg-dark: #111116;
+  --bg-dark-surface: #18181f;
+
+  /* Accent Colors */
+  --gold-primary: #b8912d;
+  --gold-light: #dfbe6b;
+  --gold-dark: #8c6a17;
+  --green-discount: #059669;
+  --green-light: #ecfdf5;
+  --blue-badge: #2563eb;
+  --red-sale: #dc2626;
+
+  /* Text Shades */
+  --text-dark: #121217;
+  --text-body: #4a4a55;
+  --text-muted: #71717e;
+  --text-light: #9e9ea7;
+
+  /* Borders & Shadows */
+  --border-subtle: #e5e5ea;
+  --border-card: #ececf0;
+  --shadow-sm: 0 2px 6px rgba(0, 0, 0, 0.04);
+  --shadow-md: 0 8px 20px rgba(0, 0, 0, 0.06);
+  --shadow-lg: 0 14px 35px rgba(0, 0, 0, 0.1);
+  --shadow-flacon: 0 12px 28px rgba(0, 0, 0, 0.25);
+
+  --font-main: 'Outfit', sans-serif;
+  --font-display: 'Playfair Display', serif;
+  --font-sans: 'Inter', sans-serif;
+
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 14px;
+  --transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Base Reset */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+  background-color: var(--bg-primary);
+}
+
+body {
+  font-family: var(--font-main);
+  color: var(--text-dark);
+  background-color: var(--bg-primary);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: var(--transition);
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+  background: transparent;
+  transition: var(--transition);
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+.container {
+  width: 100%;
+  max-width: 1360px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* ==========================================================================
+   1. TOP ANNOUNCEMENT TICKER
+   ========================================================================== */
+.announcement-bar {
+  background: #111116;
+  color: #fff;
+  padding: 9px 16px;
+  font-size: 0.78rem;
+  letter-spacing: 0.8px;
+  text-align: center;
+  position: relative;
+  z-index: 101;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+
+.announcement-item strong {
+  color: var(--gold-light);
+  font-weight: 600;
+}
+
+.announcement-item .cod-badge {
+  background: #222;
+  border: 1px solid var(--gold-primary);
+  padding: 2px 6px;
+  border-radius: 2px;
+  font-size: 0.7rem;
+  margin-left: 6px;
+}
+
+/* ==========================================================================
+   2. MAIN HEADER & LIVE SEARCH BAR
+   ========================================================================== */
+.friday-header {
+  background: #ffffff;
+  border-bottom: 1px solid var(--border-subtle);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.03);
+}
+
+.header-main-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 30px;
+  padding: 16px 0;
+}
+
+/* Brand Logo */
+.brand-identity {
+  display: flex;
+  flex-direction: column;
+}
+
+.brand-title {
+  font-family: var(--font-display);
+  font-size: 1.85rem;
+  font-weight: 800;
+  letter-spacing: 2px;
+  color: #111;
+  line-height: 1;
+}
+
+.brand-title span {
+  font-size: 1.05rem;
+  font-weight: 600;
+  letter-spacing: 2.5px;
+  color: var(--gold-primary);
+  display: inline-block;
+  margin-left: 4px;
+}
+
+.brand-tagline-sub {
+  font-size: 0.62rem;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  font-weight: 600;
+  margin-top: 3px;
+}
+
+/* Live Search Bar */
+.search-container {
+  flex: 1;
+  max-width: 580px;
+  position: relative;
+}
+
+.search-input-wrapper {
+  display: flex;
+  align-items: center;
+  background: #f4f4f7;
+  border: 1.5px solid #e2e2e8;
+  border-radius: var(--radius-md);
+  padding: 4px 14px;
+  transition: var(--transition);
+}
+
+.search-input-wrapper:focus-within {
+  border-color: #111;
+  background: #fff;
+  box-shadow: 0 0 0 3px rgba(17, 17, 22, 0.08);
+}
+
+.search-icon {
+  color: var(--text-muted);
+  font-size: 1.1rem;
+  margin-right: 10px;
+}
+
+.search-field {
+  flex: 1;
+  border: none;
+  background: transparent;
+  padding: 8px 0;
+  font-size: 0.9rem;
+  color: var(--text-dark);
+  outline: none;
+}
+
+.search-field::placeholder {
+  color: #9898a4;
+}
+
+/* Header Utilities */
+.header-actions-group {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.header-action-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--text-dark);
+  font-size: 0.82rem;
+  font-weight: 500;
+  position: relative;
+  padding: 6px;
+}
+
+.header-action-item:hover {
+  color: var(--gold-primary);
+}
+
+.action-icon-wrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.badge-counter {
+  position: absolute;
+  top: -8px;
+  right: -10px;
+  background: var(--red-sale);
+  color: #fff;
+  font-size: 0.65rem;
+  font-weight: 700;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  display: none;
+  align-items: center;
+  justify-content: center;
+}
+
+.currency-inr-tag {
+  background: #eef2ff;
+  color: #3730a3;
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: var(--radius-sm);
+  letter-spacing: 0.5px;
+}
+
+/* Mobile Toggle */
+.mobile-nav-toggle {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  width: 26px;
+  cursor: pointer;
+}
+
+.mobile-nav-toggle span {
+  display: block;
+  height: 2px;
+  width: 100%;
+  background: #111;
+  transition: var(--transition);
+}
+
+/* ==========================================================================
+   3. CATEGORY NAVIGATION MENU
+   ========================================================================== */
+.friday-category-bar {
+  background: #fafafc;
+  border-top: 1px solid #f0f0f4;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.category-nav-inner {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  overflow-x: auto;
+  scrollbar-width: none;
+  padding: 8px 0;
+}
+
+.category-nav-inner::-webkit-scrollbar {
+  display: none;
+}
+
+.cat-nav-btn {
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  color: #33333d;
+  white-space: nowrap;
+  padding: 6px 12px;
+  border-radius: var(--radius-sm);
+  transition: var(--transition);
+}
+
+.cat-nav-btn:hover {
+  color: var(--gold-primary);
+  background: #f0f0f4;
+}
+
+.cat-nav-btn.active {
+  color: #fff;
+  background: #111116;
+}
+
+.cat-nav-btn.sale-btn {
+  color: var(--red-sale);
+}
+
+/* ==========================================================================
+   4. HERO PROMOTIONAL BANNER SLIDER
+   ========================================================================== */
+.hero-slider-section {
+  position: relative;
+  background: #0f0f14;
+  color: #fff;
+  overflow: hidden;
+}
+
+.hero-slides-wrapper {
+  position: relative;
+  min-height: 480px;
+}
+
+.hero-slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.6s ease, visibility 0.6s ease;
+  display: flex;
+  align-items: center;
+}
+
+.hero-slide.active {
+  opacity: 1;
+  visibility: visible;
+  position: relative;
+}
+
+.slide-content-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  align-items: center;
+  gap: 40px;
+  padding: 60px 0;
+}
+
+.slide-badge {
+  display: inline-block;
+  background: var(--gold-primary);
+  color: #000;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  padding: 4px 12px;
+  border-radius: 2px;
+  margin-bottom: 16px;
+}
+
+.slide-title {
+  font-family: var(--font-display);
+  font-size: 3.2rem;
+  line-height: 1.15;
+  font-weight: 700;
+  margin-bottom: 16px;
+}
+
+.slide-title span {
+  color: var(--gold-light);
+}
+
+.slide-subtitle {
+  font-size: 1.1rem;
+  color: #d1d1dc;
+  margin-bottom: 28px;
+  max-width: 540px;
+}
+
+.slide-ctas {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.btn-hero-primary {
+  background: var(--gold-primary);
+  color: #000;
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  padding: 14px 28px;
+  border-radius: var(--radius-sm);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.btn-hero-primary:hover {
+  background: var(--gold-light);
+  transform: translateY(-2px);
+}
+
+.btn-hero-secondary {
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  color: #fff;
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  padding: 13px 26px;
+  border-radius: var(--radius-sm);
+}
+
+.btn-hero-secondary:hover {
+  border-color: #fff;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+/* Slide Graphic Flacon */
+.slide-visual-stage {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.slide-flacon-art {
+  width: 180px;
+  height: 290px;
+  border-radius: 8px;
+  box-shadow: var(--shadow-flacon);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.slide-flacon-art .flacon-cap {
+  position: absolute;
+  top: -46px;
+  width: 56px;
+  height: 32px;
+  border-radius: 2px;
+  border: 1px solid rgba(255,255,255,0.2);
+}
+
+.slide-flacon-art .flacon-label-tag {
+  background: rgba(14, 14, 18, 0.9);
+  border: 1px solid var(--gold-primary);
+  padding: 14px 10px;
+  width: 78%;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Slider Controls */
+.hero-slider-nav {
+  position: absolute;
+  bottom: 24px;
+  right: 40px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  z-index: 10;
+}
+
+.hero-arrow-btn {
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+}
+
+.hero-arrow-btn:hover {
+  background: var(--gold-primary);
+  color: #000;
+}
+
+.hero-dots-row {
+  display: flex;
+  gap: 8px;
+}
+
+.hero-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.25);
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.hero-dot.active {
+  background: var(--gold-primary);
+  width: 26px;
+  border-radius: 6px;
+}
+
+/* ==========================================================================
+   5. AUTHENTICITY TRUST BAR (INDIAN E-COMMERCE ASSURANCES)
+   ========================================================================== */
+.trust-badges-bar {
+  background: #ffffff;
+  border-bottom: 1px solid var(--border-subtle);
+  padding: 24px 0;
+}
+
+.trust-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.trust-card {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 10px 14px;
+  border-right: 1px solid var(--border-subtle);
+}
+
+.trust-card:last-child {
+  border-right: none;
+}
+
+.trust-icon-box {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: #fdf8eb;
+  color: var(--gold-dark);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.3rem;
+  flex-shrink: 0;
+}
+
+.trust-text h4 {
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: var(--text-dark);
+}
+
+.trust-text p {
+  font-size: 0.74rem;
+  color: var(--text-muted);
+}
+
+/* ==========================================================================
+   6. BRAND LOGO MARQUEE RIBBON
+   ========================================================================== */
+.brand-marquee-section {
+  background: #fafafc;
+  border-bottom: 1px solid var(--border-subtle);
+  padding: 18px 0;
+}
+
+.brand-chips-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.brand-pill-btn {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  letter-spacing: 1px;
+  font-weight: 700;
+  color: #333;
+  padding: 6px 14px;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.brand-pill-btn:hover {
+  color: var(--gold-primary);
+  transform: translateY(-2px);
+}
+
+/* ==========================================================================
+   7. CATALOG CONTROLS & PRODUCT GRID
+   ========================================================================== */
+.catalog-section {
+  padding: 60px 0 100px;
+}
+
+.catalog-header-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.catalog-heading-wrap h2 {
+  font-family: var(--font-display);
+  font-size: 2.1rem;
+  color: var(--text-dark);
+}
+
+.catalog-count {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  font-weight: 500;
+}
+
+/* Filter Controls Bar */
+.filter-controls-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.filter-select {
+  background: #fff;
+  border: 1px solid #dcdce2;
+  color: var(--text-dark);
+  padding: 8px 14px;
+  border-radius: var(--radius-sm);
+  font-size: 0.82rem;
+  font-weight: 500;
+  outline: none;
+  cursor: pointer;
+}
+
+.filter-select:focus {
+  border-color: #111;
+}
+
+/* Olfactory Family Filter Pills */
+.family-filters-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 36px;
+  overflow-x: auto;
+  padding-bottom: 6px;
+}
+
+.family-filter-pill {
+  background: #f0f0f4;
+  color: var(--text-body);
+  border: 1px solid #e2e2e8;
+  padding: 6px 16px;
+  border-radius: 20px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.family-filter-pill:hover {
+  background: #e5e5ec;
+}
+
+.family-filter-pill.active {
+  background: #111116;
+  color: #fff;
+  border-color: #111116;
+}
+
+/* Product Cards Grid */
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 26px;
+}
+
+.friday-product-card {
+  background: #fff;
+  border: 1px solid var(--border-card);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: var(--transition);
+  position: relative;
+}
+
+.friday-product-card:hover {
+  border-color: #d1d1dc;
+  box-shadow: var(--shadow-lg);
+  transform: translateY(-5px);
+}
+
+/* Badges on Card Head */
+.card-head-badges {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  right: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 5;
+}
+
+.badges-left {
+  display: flex;
+  gap: 6px;
+}
+
+.discount-pill {
+  background: var(--green-discount);
+  color: #fff;
+  font-size: 0.68rem;
+  font-weight: 700;
+  padding: 3px 8px;
+  border-radius: var(--radius-sm);
+  letter-spacing: 0.5px;
+}
+
+.bestseller-pill {
+  background: #111116;
+  color: var(--gold-light);
+  font-size: 0.65rem;
+  font-weight: 700;
+  padding: 3px 8px;
+  border-radius: var(--radius-sm);
+  letter-spacing: 1px;
+}
+
+.btn-card-wishlist {
+  background: #fff;
+  border: 1px solid var(--border-subtle);
+  color: #777;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--shadow-sm);
+}
+
+.btn-card-wishlist:hover, .btn-card-wishlist.active {
+  color: #e11d48;
+  border-color: #e11d48;
+}
+
+/* Card Bottle Stage */
+.card-bottle-stage {
+  height: 250px;
+  background: linear-gradient(180deg, #f8f8fb 0%, #efeff4 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+
+.card-flacon-preview {
+  width: 125px;
+  height: 195px;
+  border-radius: 6px;
+  box-shadow: var(--shadow-flacon);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  transition: transform 0.4s ease;
+}
+
+.friday-product-card:hover .card-flacon-preview {
+  transform: scale(1.05) translateY(-3px);
+}
+
+.card-flacon-preview .flacon-cap {
+  position: absolute;
+  top: -34px;
+  width: 44px;
+  height: 24px;
+  border-radius: 2px;
+}
+
+.card-flacon-preview .flacon-reflection {
+  position: absolute;
+  top: 8px;
+  left: 10px;
+  width: 8px;
+  height: 80%;
+  background: linear-gradient(180deg, rgba(255,255,255,0.4) 0%, rgba(255,255,255,0.02) 100%);
+  border-radius: 4px;
+}
+
+.card-flacon-preview .flacon-label-tag {
+  background: rgba(10, 10, 14, 0.88);
+  border: 1px solid var(--gold-primary);
+  padding: 10px 8px;
+  width: 80%;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.brand-sub {
+  font-size: 0.48rem;
+  letter-spacing: 2px;
+  color: var(--gold-light);
+  text-transform: uppercase;
+}
+
+.name-sub {
+  font-family: var(--font-display);
+  font-size: 0.68rem;
+  font-weight: 700;
+  color: #fff;
+  text-transform: uppercase;
+}
+
+/* Card Body */
+.card-body {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.card-brand-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 6px;
+}
+
+.card-brand-name {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--gold-dark);
+}
+
+.card-rating-chip {
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: #b45309;
+}
+
+.card-product-name {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--text-dark);
+  margin-bottom: 8px;
+  line-height: 1.35;
+  cursor: pointer;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  height: 2.7rem;
+}
+
+.card-product-name:hover {
+  color: var(--gold-primary);
+}
+
+.card-meta-line {
+  display: flex;
+  gap: 6px;
+  margin-bottom: 16px;
+  flex-wrap: wrap;
+}
+
+.meta-tag {
+  background: #f3f3f7;
+  color: var(--text-body);
+  font-size: 0.68rem;
+  font-weight: 600;
+  padding: 2px 7px;
+  border-radius: var(--radius-sm);
+}
+
+.meta-tag.family-tag {
+  background: #fdf4dc;
+  color: #854d0e;
+}
+
+/* Price in Indian INR */
+.card-pricing-block {
+  margin-top: auto;
+  padding-top: 14px;
+  border-top: 1px solid #f0f0f4;
+  margin-bottom: 16px;
+}
+
+.prices-wrap {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+}
+
+.current-price-inr {
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: #111;
+}
+
+.mrp-strikethrough {
+  font-size: 0.85rem;
+  color: var(--text-light);
+  text-decoration: line-through;
+}
+
+.savings-amount {
+  display: block;
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--green-discount);
+  margin-top: 2px;
+}
+
+/* Action Buttons */
+.card-footer-btns {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+
+.btn-quick-view {
+  background: #f4f4f7;
+  color: #222;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  padding: 10px;
+  border-radius: var(--radius-sm);
+  text-align: center;
+}
+
+.btn-quick-view:hover {
+  background: #e6e6ed;
+}
+
+.btn-add-to-bag {
+  background: #111116;
+  color: #fff;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  padding: 10px;
+  border-radius: var(--radius-sm);
+  text-align: center;
+}
+
+.btn-add-to-bag:hover {
+  background: var(--gold-primary);
+  color: #000;
+}
+
+/* No Products Found */
+.no-products-found {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 60px 20px;
+  background: #fff;
+  border: 1px dashed #dcdce2;
+  border-radius: var(--radius-md);
+}
+
+.no-prod-icon {
+  font-size: 2.5rem;
+  margin-bottom: 12px;
+}
+
+.btn-reset-filters {
+  background: #111;
+  color: #fff;
+  padding: 10px 24px;
+  border-radius: var(--radius-sm);
+  font-weight: 600;
+  margin-top: 16px;
+}
+
+/* ==========================================================================
+   8. BATCH CODE VERIFICATION TOOL SECTION
+   ========================================================================== */
+.batch-checker-section {
+  background: #f9f9fc;
+  border-top: 1px solid var(--border-subtle);
+  border-bottom: 1px solid var(--border-subtle);
+  padding: 80px 0;
+}
+
+.batch-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 50px;
+  align-items: center;
+}
+
+.batch-content-col h2 {
+  font-family: var(--font-display);
+  font-size: 2.2rem;
+  margin-bottom: 14px;
+}
+
+.batch-content-col p {
+  color: var(--text-body);
+  font-size: 0.95rem;
+  line-height: 1.7;
+  margin-bottom: 24px;
+}
+
+.batch-box-card {
+  background: #fff;
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  padding: 30px;
+  box-shadow: var(--shadow-md);
+}
+
+.batch-input-group {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.batch-input {
+  flex: 1;
+  border: 1.5px solid #d5d5de;
+  padding: 12px 16px;
+  border-radius: var(--radius-sm);
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  font-weight: 600;
+  outline: none;
+}
+
+.batch-input:focus {
+  border-color: #111;
+}
+
+.btn-verify-batch {
+  background: #111116;
+  color: var(--gold-light);
+  padding: 12px 22px;
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  border-radius: var(--radius-sm);
+}
+
+.batch-verified-card {
+  background: #f0fdf4;
+  border: 1px solid #bbf7d0;
+  border-radius: var(--radius-sm);
+  padding: 16px;
+}
+
+.batch-badge {
+  color: #15803d;
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 1px;
+  margin-bottom: 10px;
+}
+
+.batch-details {
+  font-size: 0.8rem;
+  color: #166534;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+/* ==========================================================================
+   9. GOOGLE REVIEWS & SOCIAL PROOF SECTION
+   ========================================================================== */
+.reviews-section {
+  padding: 80px 0;
+  background: #ffffff;
+}
+
+.reviews-header {
+  text-align: center;
+  max-width: 640px;
+  margin: 0 auto 50px;
+}
+
+.google-badge-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #fef3c7;
+  color: #92400e;
+  font-size: 0.78rem;
+  font-weight: 700;
+  padding: 6px 14px;
+  border-radius: 20px;
+  margin-bottom: 12px;
+}
+
+.reviews-header h2 {
+  font-family: var(--font-display);
+  font-size: 2.2rem;
+  margin-bottom: 10px;
+}
+
+.reviews-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.review-card {
+  background: #fbfbfd;
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  padding: 26px;
+  display: flex;
+  flex-direction: column;
+}
+
+.review-stars {
+  color: #f59e0b;
+  font-size: 1.1rem;
+  margin-bottom: 12px;
+}
+
+.review-quote {
+  font-size: 0.92rem;
+  color: var(--text-dark);
+  line-height: 1.6;
+  margin-bottom: 20px;
+  flex: 1;
+}
+
+.review-author {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-top: 1px solid #f0f0f4;
+  padding-top: 14px;
+}
+
+.author-name {
+  font-weight: 700;
+  font-size: 0.85rem;
+}
+
+.verified-buyer-tag {
+  color: var(--green-discount);
+  font-size: 0.72rem;
+  font-weight: 600;
+}
+
+/* ==========================================================================
+   10. FOOTER & INDIAN PAYMENT METHODS BANNER
+   ========================================================================== */
+.friday-footer {
+  background: #111116;
+  color: #e5e5ec;
+  padding: 70px 0 30px;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1fr 1.2fr;
+  gap: 40px;
+  margin-bottom: 50px;
+}
+
+.footer-brand h3 {
+  font-family: var(--font-display);
+  font-size: 1.7rem;
+  font-weight: 800;
+  letter-spacing: 2px;
+  color: #fff;
+  margin-bottom: 12px;
+}
+
+.footer-brand h3 span {
+  font-size: 1rem;
+  letter-spacing: 2px;
+  color: var(--gold-light);
+  display: inline-block;
+  margin-left: 4px;
+}
+
+.footer-brand p {
+  color: #9e9ea8;
+  font-size: 0.85rem;
+  line-height: 1.7;
+  margin-bottom: 20px;
+}
+
+.footer-heading {
+  font-size: 0.88rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: #fff;
+  margin-bottom: 18px;
+}
+
+.footer-links {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.footer-links a {
+  color: #a4a4b2;
+  font-size: 0.82rem;
+}
+
+.footer-links a:hover {
+  color: #fff;
+  transform: translateX(3px);
+}
+
+/* Indian Payment Methods Banner in Footer */
+.footer-payment-strip {
+  border-top: 1px solid #23232c;
+  border-bottom: 1px solid #23232c;
+  padding: 24px 0;
+  margin-bottom: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.payment-label-col {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--gold-light);
+}
+
+.payment-icons-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.pay-badge-pill {
+  background: #1e1e26;
+  border: 1px solid #333342;
+  color: #fff;
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 5px 12px;
+  border-radius: var(--radius-sm);
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.pay-badge-pill.upi {
+  border-color: #22c55e;
+  color: #4ade80;
+}
+
+.pay-badge-pill.cod {
+  border-color: var(--gold-primary);
+  color: var(--gold-light);
+}
+
+.footer-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 0.75rem;
+  color: #727280;
+  flex-wrap: wrap;
+  gap: 14px;
+}
+
+/* Responsive Rules */
+@media (max-width: 1024px) {
+  .trust-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .slide-content-grid {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+  .slide-subtitle {
+    margin: 0 auto 28px;
+  }
+  .slide-ctas {
+    justify-content: center;
+  }
+  .batch-grid {
+    grid-template-columns: 1fr;
+  }
+  .reviews-cards-grid {
+    grid-template-columns: 1fr;
+  }
+  .footer-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .mobile-nav-toggle {
+    display: flex;
+  }
+  .friday-category-bar {
+    display: none;
+  }
+  .friday-category-bar.open {
+    display: block;
+  }
+  .header-main-row {
+    flex-wrap: wrap;
+  }
+  .search-container {
+    order: 3;
+    max-width: 100%;
+    width: 100%;
+  }
+  .slide-title {
+    font-size: 2.2rem;
+  }
+  .trust-grid {
+    grid-template-columns: 1fr;
+  }
+  .footer-grid {
+    grid-template-columns: 1fr;
+  }
+  .products-grid {
+    grid-template-columns: 1fr;
+  }
+}

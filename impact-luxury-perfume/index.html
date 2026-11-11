@@ -1,0 +1,780 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>IMPACT Luxury Perfume &mdash; 100% Original Designer, Niche &amp; Arabian Fragrances in India</title>
+  <meta name="description" content="IMPACT Luxury Perfume India. Shop 100% Authentic Designer, Niche & Arabian Perfumes. Armaf, Lattafa, Dior, Creed, Tom Ford. Cash on Delivery (COD) & UPI Extra 5% Off.">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>✦</text></svg>">
+
+  <!-- Core Stylesheets -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/components.css">
+</head>
+<body>
+
+  <!-- Top Announcement Bar (Indian E-Commerce Offers) -->
+  <div class="announcement-bar">
+    <div class="announcement-item">
+      <span>🚚 <strong>FREE Express Air Shipping</strong> on Orders Above ₹999</span>
+    </div>
+    <div class="announcement-item">
+      <span>🛡️ <strong>IMPACT 100% Originality Guarantee</strong> or 2x Refund</span>
+    </div>
+    <div class="announcement-item">
+      <span>💵 <strong>Cash on Delivery (COD)</strong> Available Pan-India</span>
+    </div>
+    <div class="announcement-item">
+      <span>⚡ Extra <strong>5% Instant Discount</strong> on Prepaid UPI / Cards</span>
+    </div>
+  </div>
+
+  <!-- Main Header with Live Search & Bag Trigger -->
+  <header class="friday-header">
+    <div class="container header-main-row">
+      <!-- Brand Logo: IMPACT LUXURY PERFUME -->
+      <a href="index.html" class="brand-identity">
+        <h1 class="brand-title">IMPACT <span>LUXURY PERFUME</span></h1>
+        <span class="brand-tagline-sub">Haute Parfumerie &bull; 100% Authentic &bull; India</span>
+      </a>
+
+      <!-- Live Search Bar with Instant Suggestions Dropdown -->
+      <div class="search-container">
+        <div class="search-input-wrapper">
+          <span class="search-icon">🔍</span>
+          <input type="text" 
+                 id="headerSearchInput" 
+                 class="search-field" 
+                 placeholder="Search by Perfume name, Brand (Dior, Creed, Armaf) or Note (Oud, Vanilla)..." 
+                 autocomplete="off">
+        </div>
+        <!-- Dropdown Container -->
+        <div class="search-suggestions-dropdown" id="searchSuggestionsBox"></div>
+      </div>
+
+      <!-- Header Utilities -->
+      <div class="header-actions-group">
+        <!-- Indian Rupee Badge -->
+        <span class="currency-inr-tag">🇮🇳 INR (₹)</span>
+
+        <!-- Wishlist Button -->
+        <button class="header-action-item" onclick="FridayCart.showToast('Your IMPACT Wishlist is stored securely.');" title="My Wishlist">
+          <div class="action-icon-wrap">
+            <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+            </svg>
+            <span class="badge-counter" id="wishlistCountBadge">0</span>
+          </div>
+          <span>Wishlist</span>
+        </button>
+
+        <!-- Shopping Bag Button -->
+        <button class="header-action-item" id="bagTriggerBtn" title="Shopping Bag">
+          <div class="action-icon-wrap">
+            <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
+              <line x1="3" y1="6" x2="21" y2="6"></line>
+              <path d="M16 10a4 4 0 0 1-8 0"></path>
+            </svg>
+            <span class="badge-counter" id="bagItemCountBadge">0</span>
+          </div>
+          <span>Bag</span>
+        </button>
+
+        <!-- Mobile Navigation Hamburger -->
+        <button class="mobile-nav-toggle" id="mobileNavToggle" aria-label="Toggle Navigation">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Category Mega Navigation Menu -->
+  <nav class="friday-category-bar" id="fridayCategoryNav">
+    <div class="container category-nav-inner">
+      <button class="cat-nav-btn active" data-category="all">All Fragrances</button>
+      <button class="cat-nav-btn" data-category="niche">IMPACT Private Reserve</button>
+      <button class="cat-nav-btn" data-category="middle-eastern">Middle Eastern &amp; Arabian Ouds</button>
+      <button class="cat-nav-btn" data-category="designer">Designer Perfumes</button>
+      <button class="cat-nav-btn" data-category="men">Men's Fragrances</button>
+      <button class="cat-nav-btn" data-category="women">Women's Perfumes</button>
+      <button class="cat-nav-btn" data-category="unisex">Unisex Scents</button>
+      <button class="cat-nav-btn" data-category="bestseller">Best Sellers 🔥</button>
+      <button class="cat-nav-btn sale-btn" data-category="all">Festive Deals (Up to 40% OFF)</button>
+    </div>
+  </nav>
+
+  <!-- Hero Promotional Banner Slider -->
+  <section class="hero-slider-section">
+    <div class="hero-slides-wrapper">
+      
+      <!-- Slide 1: Middle Eastern Ouds & Viral Beast Modes -->
+      <div class="hero-slide active">
+        <div class="container slide-content-grid">
+          <div>
+            <span class="slide-badge">Exclusive Sourcing &bull; Dubai &amp; Grasse</span>
+            <h2 class="slide-title">The Royal Arabian <span>Oud Collection</span></h2>
+            <p class="slide-subtitle">
+              Curated by IMPACT Luxury Perfume: Armaf Club de Nuit Pure Parfum, Lattafa Khamrah, and Rasasi Hawas. Monolithic projection, 100% genuine guaranteed.
+            </p>
+            <div class="slide-ctas">
+              <button class="btn-hero-primary" onclick="FridayFilter.searchBrand('Armaf');">
+                Shop Middle Eastern Hits &rarr;
+              </button>
+              <button class="btn-hero-secondary" onclick="FridayFilter.searchBrand('Lattafa');">
+                Explore Lattafa from ₹2,350
+              </button>
+            </div>
+          </div>
+          <div class="slide-visual-stage">
+            <div class="slide-flacon-art" style="background: linear-gradient(135deg, #1b1b1f, #0a0a0c); border: 1px solid #d4af3777;">
+              <div class="flacon-cap" style="background: #222;"></div>
+              <div class="flacon-label-tag">
+                <span class="brand-sub">IMPACT CURATED</span>
+                <span class="name-sub">CLUB DE NUIT</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 2: Niche Perfumery Vault & IMPACT Reserve -->
+      <div class="hero-slide">
+        <div class="container slide-content-grid">
+          <div>
+            <span class="slide-badge">Haute Niche &bull; Grasse &amp; Paris</span>
+            <h2 class="slide-title">Royalty in a Bottle: <span>Creed, PDM &amp; IMPACT</span></h2>
+            <p class="slide-subtitle">
+              Featuring our flagship Impact Noir Absolu (32% Extrait), Creed Aventus, Parfums de Marly Layton, and Baccarat Rouge 540 Extrait. Direct European imports.
+            </p>
+            <div class="slide-ctas">
+              <button class="btn-hero-primary" onclick="FridayFilter.searchBrand('IMPACT');">
+                Explore IMPACT Extrait &rarr;
+              </button>
+              <button class="btn-hero-secondary" onclick="FridayFilter.searchBrand('Creed');">
+                Shop Creed Aventus
+              </button>
+            </div>
+          </div>
+          <div class="slide-visual-stage">
+            <div class="slide-flacon-art" style="background: radial-gradient(circle at 40% 30%, #303038, #111116 80%, #050507); border: 1px solid #d4af37;">
+              <div class="flacon-cap" style="background: #d4af37;"></div>
+              <div class="flacon-label-tag">
+                <span class="brand-sub">MAISON IMPACT</span>
+                <span class="name-sub">NOIR ABSOLU</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 3: Designer Masterpieces -->
+      <div class="hero-slide">
+        <div class="container slide-content-grid">
+          <div>
+            <span class="slide-badge">Designer Prestige &bull; Flat 15-25% OFF</span>
+            <h2 class="slide-title">Icons of Sophistication: <span>Dior &amp; Tom Ford</span></h2>
+            <p class="slide-subtitle">
+              Sauvage Elixir, Bleu de Chanel, and Tom Ford Black Orchid Parfum. Timeless masculine authority with complimentary pan-India express courier.
+            </p>
+            <div class="slide-ctas">
+              <button class="btn-hero-primary" onclick="FridayFilter.searchBrand('Dior');">
+                Shop Dior Sauvage &rarr;
+              </button>
+              <button class="btn-hero-secondary" onclick="FridayFilter.searchBrand('Tom Ford');">
+                Explore Tom Ford
+              </button>
+            </div>
+          </div>
+          <div class="slide-visual-stage">
+            <div class="slide-flacon-art" style="background: linear-gradient(135deg, #101424, #05070f); border: 1px solid #d4af3777;">
+              <div class="flacon-cap" style="background: #1d2338;"></div>
+              <div class="flacon-label-tag">
+                <span class="brand-sub">DIOR PARIS</span>
+                <span class="name-sub">SAUVAGE ELIXIR</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Slider Navigation Controls -->
+    <div class="hero-slider-nav">
+      <button class="hero-arrow-btn" id="heroPrevBtn" aria-label="Previous Slide">&larr;</button>
+      <div class="hero-dots-row">
+        <span class="hero-dot active"></span>
+        <span class="hero-dot"></span>
+        <span class="hero-dot"></span>
+      </div>
+      <button class="hero-arrow-btn" id="heroNextBtn" aria-label="Next Slide">&rarr;</button>
+    </div>
+  </section>
+
+  <!-- Indian E-Commerce Trust Badges Bar -->
+  <section class="trust-badges-bar">
+    <div class="container trust-grid">
+      <div class="trust-card">
+        <div class="trust-icon-box">🛡️</div>
+        <div class="trust-text">
+          <h4>100% Original IMPACT Guarantee</h4>
+          <p>Direct sourcing from authorized EU &amp; UAE brand distributors</p>
+        </div>
+      </div>
+      <div class="trust-card">
+        <div class="trust-icon-box">✈️</div>
+        <div class="trust-text">
+          <h4>Express Air Delivery</h4>
+          <p>Dispatched within 24 hours via BlueDart / Delhivery Air</p>
+        </div>
+      </div>
+      <div class="trust-card">
+        <div class="trust-icon-box">💵</div>
+        <div class="trust-text">
+          <h4>Cash on Delivery (COD)</h4>
+          <p>Pay at your doorstep with verified tamper-proof security box</p>
+        </div>
+      </div>
+      <div class="trust-card">
+        <div class="trust-icon-box">🔄</div>
+        <div class="trust-text">
+          <h4>3-Day Easy Returns</h4>
+          <p>Hassle-free replacement for sealed original products</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Popular Brands Marquee Ribbon -->
+  <section class="brand-marquee-section">
+    <div class="container brand-chips-row">
+      <span style="font-size: 0.75rem; font-weight: 700; color: #888; text-transform: uppercase;">Featured Houses:</span>
+      <button class="brand-pill-btn" onclick="FridayFilter.searchBrand('IMPACT')">★ IMPACT PARFUMS</button>
+      <button class="brand-pill-btn" onclick="FridayFilter.searchBrand('Dior')">DIOR</button>
+      <button class="brand-pill-btn" onclick="FridayFilter.searchBrand('Tom Ford')">TOM FORD</button>
+      <button class="brand-pill-btn" onclick="FridayFilter.searchBrand('Creed')">CREED</button>
+      <button class="brand-pill-btn" onclick="FridayFilter.searchBrand('Armaf')">ARMAF</button>
+      <button class="brand-pill-btn" onclick="FridayFilter.searchBrand('Lattafa')">LATTAFA</button>
+      <button class="brand-pill-btn" onclick="FridayFilter.searchBrand('Parfums de Marly')">PARFUMS DE MARLY</button>
+      <button class="brand-pill-btn" onclick="FridayFilter.searchBrand('Chanel')">CHANEL</button>
+      <button class="brand-pill-btn" onclick="FridayFilter.searchBrand('Rasasi')">RASASI</button>
+      <button class="brand-pill-btn" onclick="FridayFilter.searchBrand('Versace')">VERSACE</button>
+    </div>
+  </section>
+
+  <!-- Main Catalog & Product Discovery Section -->
+  <main class="catalog-section" id="catalogSection">
+    <div class="container">
+      
+      <!-- Catalog Header Bar -->
+      <div class="catalog-header-bar">
+        <div class="catalog-heading-wrap">
+          <h2>100% Authentic Designer &amp; Niche Perfumes</h2>
+          <span class="catalog-count" id="catalogResultsCount">Loading genuine fragrances...</span>
+        </div>
+
+        <!-- Filter & Sorting Dropdowns (Indian INR Pricing) -->
+        <div class="filter-controls-row">
+          <!-- Price Range Filter in INR -->
+          <select class="filter-select" id="filterPriceSelect" aria-label="Filter By Price In Indian Rupees">
+            <option value="all">Price: All Budgets (INR ₹)</option>
+            <option value="under-3000">Under ₹3,000</option>
+            <option value="3000-8000">₹3,000 &ndash; ₹8,000</option>
+            <option value="8000-18000">₹8,000 &ndash; ₹18,000</option>
+            <option value="above-18000">Luxury Vault (₹18,000+)</option>
+          </select>
+
+          <!-- Gender Filter -->
+          <select class="filter-select" id="filterGenderSelect" aria-label="Filter By Gender">
+            <option value="all">Gender: All</option>
+            <option value="men">Men's Fragrances</option>
+            <option value="women">Women's Fragrances</option>
+            <option value="unisex">Unisex Fragrances</option>
+          </select>
+
+          <!-- Sort Selector -->
+          <select class="filter-select" id="filterSortSelect" aria-label="Sort Catalog Products">
+            <option value="featured">Sort: Featured &amp; Best Sellers</option>
+            <option value="price-asc">Price: Low to High (₹)</option>
+            <option value="price-desc">Price: High to Low (₹)</option>
+            <option value="rating">Highest Customer Rating (★)</option>
+            <option value="discount">Biggest Discount (% OFF)</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Olfactory Family Pill Filter Tabs -->
+      <div class="family-filters-row">
+        <button class="family-filter-pill active" data-family="all">All Scent Families</button>
+        <button class="family-filter-pill" data-family="Woody">Woody &amp; Birch</button>
+        <button class="family-filter-pill" data-family="Aquatic">Fresh &amp; Aquatic</button>
+        <button class="family-filter-pill" data-family="Oriental">Amber &amp; Royal Oud</button>
+        <button class="family-filter-pill" data-family="Gourmand">Sweet Dates &amp; Vanilla</button>
+        <button class="family-filter-pill" data-family="Spicy">Warm Spice &amp; Leather</button>
+        <button class="family-filter-pill" data-family="Floral">Honeyed Jasmine &amp; Florals</button>
+      </div>
+
+      <!-- Products Grid (Rendered by js/filter.js from FRIDAY_PRODUCTS) -->
+      <div class="products-grid" id="fridayProductsGrid"></div>
+
+    </div>
+  </main>
+
+  <!-- Batch Code Verification Tool Section -->
+  <section class="batch-checker-section">
+    <div class="container batch-grid">
+      <div class="batch-content-col">
+        <span style="font-size: 0.72rem; letter-spacing: 2px; text-transform: uppercase; color: var(--gold-dark); font-weight: 700;">Zero Counterfeits Policy</span>
+        <h2>Batch Code Authenticity Verification</h2>
+        <p>
+          Every perfume flacon sold on <strong>IMPACT Luxury Perfume</strong> carries an engraved batch code corresponding to official manufacturer packaging records. Enter your batch code to verify genuine importation and shelf life.
+        </p>
+        <div class="card-accords">
+          <span class="meta-tag">✔ CDSCO Registered Importers</span>
+          <span class="meta-tag">✔ Original Cellophane Hologram</span>
+          <span class="meta-tag">✔ Stored in Climate-Controlled Cellars</span>
+        </div>
+      </div>
+
+      <div class="batch-box-card">
+        <h4 style="font-size: 1rem; margin-bottom: 12px; font-weight: 700;">Verify Your Perfume Batch:</h4>
+        <div class="batch-input-group">
+          <input type="text" id="batchCodeInput" class="batch-input" placeholder="e.g. 24A01 or 38T200" value="24A01">
+          <button type="button" class="btn-verify-batch" id="btnVerifyBatchCode">Verify Code</button>
+        </div>
+        <div id="batchVerificationResult"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Google Reviews & Testimonials Section -->
+  <section class="reviews-section">
+    <div class="container">
+      <div class="reviews-header">
+        <div class="google-badge-pill">
+          <span>★ 4.9 / 5.0 Google Reviews</span>
+          <span>&bull;</span>
+          <span>Over 14,000+ Happy Fragrance Enthusiasts Across India</span>
+        </div>
+        <h2>What Perfume Lovers Say About IMPACT Luxury Perfume</h2>
+        <p style="color: var(--text-muted); font-size: 0.92rem;">Uncompromised authenticity, pristine packaging, and lightning-fast air courier delivery.</p>
+      </div>
+
+      <div class="reviews-cards-grid">
+        <div class="review-card">
+          <div class="review-stars">★★★★★</div>
+          <p class="review-quote">
+            &ldquo;Ordered Impact Noir Absolu and Armaf Club de Nuit Pure Parfum. Arrived in Mumbai within 48 hours via BlueDart. Checked the batch code immediately &mdash; 100% genuine! The projection is nuclear.&rdquo;
+          </p>
+          <div class="review-author">
+            <span class="author-name">Rohan Malhotra &bull; Mumbai</span>
+            <span class="verified-buyer-tag">✔ Verified Buyer</span>
+          </div>
+        </div>
+
+        <div class="review-card">
+          <div class="review-stars">★★★★★</div>
+          <p class="review-quote">
+            &ldquo;Was skeptical about buying Creed Aventus online in India, but IMPACT Luxury Perfume exceeded expectations. Genuine batch, authentic atomizer pressurized click, and tamper-proof packaging. Highly recommended!&rdquo;
+          </p>
+          <div class="review-author">
+            <span class="author-name">Dr. Sameer Khan &bull; New Delhi</span>
+            <span class="verified-buyer-tag">✔ Verified Buyer</span>
+          </div>
+        </div>
+
+        <div class="review-card">
+          <div class="review-stars">★★★★★</div>
+          <p class="review-quote">
+            &ldquo;Lattafa Khamrah is pure boozy dates and cinnamon heaven! Also paid via UPI and got an extra 5% instant discount. Easily the best luxury perfume site in India.&rdquo;
+          </p>
+          <div class="review-author">
+            <span class="author-name">Pooja Venkatesh &bull; Bangalore</span>
+            <span class="verified-buyer-tag">✔ Verified Buyer</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Indian Payment & Shipping Footer -->
+  <footer class="friday-footer">
+    <div class="container">
+      
+      <!-- Indian Payment Methods Strip -->
+      <div class="footer-payment-strip">
+        <div class="payment-label-col">
+          <span>🇮🇳 100% SECURE INDIAN PAYMENT GATEWAYS (INR ₹):</span>
+        </div>
+        <div class="payment-icons-row">
+          <span class="pay-badge-pill upi">⚡ Instant UPI</span>
+          <span class="pay-badge-pill">Google Pay</span>
+          <span class="pay-badge-pill">PhonePe</span>
+          <span class="pay-badge-pill">Paytm</span>
+          <span class="pay-badge-pill">BHIM UPI</span>
+          <span class="pay-badge-pill">RuPay Debit/Credit</span>
+          <span class="pay-badge-pill">Visa / Mastercard</span>
+          <span class="pay-badge-pill">Net Banking (All Indian Banks)</span>
+          <span class="pay-badge-pill cod">💵 Cash on Delivery (COD)</span>
+        </div>
+      </div>
+
+      <!-- Footer Grid -->
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <h3>IMPACT <span>LUXURY PERFUME</span></h3>
+          <p>
+            India's most trusted online destination for 100% genuine luxury designer, artisanal niche, and viral Arabian perfumes. Sourced directly from verified global distributors in Grasse, Paris, and Dubai.
+          </p>
+          <div style="font-size: 0.78rem; color: #bbb;">
+            <span>GSTIN: <strong>27AAACI8492P1Z5</strong> &bull; HSN Code 33030090</span>
+          </div>
+        </div>
+
+        <div>
+          <h4 class="footer-heading">Collections</h4>
+          <ul class="footer-links">
+            <li><a href="#catalogSection" onclick="FridayFilter.searchBrand('IMPACT')">IMPACT Private Reserve</a></li>
+            <li><a href="#catalogSection" onclick="FridayFilter.searchBrand('Armaf')">Middle Eastern Ouds</a></li>
+            <li><a href="#catalogSection" onclick="FridayFilter.searchBrand('Dior')">Designer Fragrances</a></li>
+            <li><a href="#catalogSection" onclick="FridayFilter.searchBrand('Creed')">Niche Luxury Vault</a></li>
+            <li><a href="#catalogSection">Pocket Decants &amp; Travel Atomizers</a></li>
+            <li><a href="#catalogSection">Best Sellers under ₹3,000</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-heading">Customer Care</h4>
+          <ul class="footer-links">
+            <li><a href="javascript:void(0)">Track Your Order (BlueDart/Delhivery)</a></li>
+            <li><a href="javascript:void(0)">IMPACT 100% Authenticity Charter</a></li>
+            <li><a href="javascript:void(0)">Cash on Delivery (COD) Guidelines</a></li>
+            <li><a href="javascript:void(0)">Shipping &amp; 3-Day Return Policy</a></li>
+            <li><a href="javascript:void(0)">WhatsApp Support Concierge</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-heading">Maison Salons &bull; Dispatch</h4>
+          <p style="font-size: 0.82rem; color: #aaa; margin-bottom: 12px;">
+            Central Dispatch Cellar: Fort, Mumbai, Maharashtra &ndash; 400001
+          </p>
+          <p style="font-size: 0.82rem; color: #aaa; margin-bottom: 16px;">
+            Support Helpline: <strong>+91 (022) 4892-IMPACT</strong><br>
+            Email: <strong>concierge@impactparfums.in</strong>
+          </p>
+          <div style="font-size: 0.72rem; color: #777;">
+            Operating Hours: Monday &ndash; Saturday (10:00 AM &ndash; 7:00 PM IST)
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <span>&copy; 2026 IMPACT Luxury Perfume India Pvt Ltd. All rights reserved.</span>
+        <div>
+          <span>Crafted for true fragrance connoisseurs in India &bull; Prices displayed in Indian Rupees (INR ₹)</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ==========================================================================
+       MODALS & SLIDE-OUT DRAWERS
+       ========================================================================== -->
+
+  <!-- Shopping Bag Slide-out Drawer -->
+  <div class="bag-overlay" id="bagOverlay"></div>
+  <aside class="bag-drawer" id="bagDrawer" aria-label="Your Shopping Bag">
+    <div class="bag-header">
+      <h3 class="bag-title">Your IMPACT Bag</h3>
+      <button class="btn-close-bag" id="closeBagDrawer" aria-label="Close Bag">&times;</button>
+    </div>
+
+    <!-- Free Express Shipping Meter -->
+    <div class="bag-shipping-meter">
+      <div class="meter-text" id="bagProgressText">
+        Add <strong>₹999</strong> more for <strong>FREE Express Pan-India Delivery!</strong>
+      </div>
+      <div class="meter-track">
+        <div class="meter-fill" id="bagProgressFill"></div>
+      </div>
+    </div>
+
+    <!-- Free Sample Vial Unlocked Banner -->
+    <div class="free-gift-banner" id="freeGiftBanner" style="display: none;"></div>
+
+    <!-- Empty Bag State -->
+    <div class="bag-empty-state" id="bagEmptyState">
+      <div class="empty-icon">🛍️</div>
+      <h4 class="empty-title">Your Bag is Empty</h4>
+      <p class="empty-desc">Discover 100% original designer &amp; Middle Eastern perfumes today.</p>
+      <button class="btn-start-shopping" onclick="FridayCart.closeDrawer();">Start Shopping</button>
+    </div>
+
+    <!-- Cart Items Container -->
+    <div class="bag-items-list" id="bagItemsContainer"></div>
+
+    <!-- Bag Footer & Summary in Indian INR -->
+    <div class="bag-footer" id="bagFooter">
+      
+      <!-- Payment Mode Selector (Prepaid 5% OFF vs Cash on Delivery) -->
+      <div class="pay-mode-selector">
+        <label class="pay-mode-option">
+          <input type="radio" name="bagPayMode" id="payModePrepaid" checked>
+          <span>UPI / Cards (Prepaid)</span>
+          <span class="badge-5pct">EXTRA 5% OFF</span>
+        </label>
+        <label class="pay-mode-option">
+          <input type="radio" name="bagPayMode" id="payModeCod">
+          <span>Cash on Delivery</span>
+        </label>
+      </div>
+
+      <!-- Coupon Code Input (e.g. IMPACT10) -->
+      <div class="bag-coupon-row">
+        <input type="text" class="bag-coupon-input" id="bagCouponInput" placeholder="Enter Privilege Code (e.g. IMPACT10)">
+        <button class="btn-apply-coupon" id="btnApplyBagCoupon">Apply</button>
+      </div>
+
+      <!-- Order Calculations in INR -->
+      <div class="bag-calc-summary">
+        <div class="calc-row">
+          <span>Bag Subtotal:</span>
+          <span id="bagSubtotal">₹0</span>
+        </div>
+        <div class="calc-row discount-row" id="bagPromoRow" style="display: none;">
+          <span>Coupon Discount:</span>
+          <span id="bagPromoVal">-₹0</span>
+        </div>
+        <div class="calc-row discount-row" id="bagPrepaidRow">
+          <span>Prepaid Extra 5% Privilege:</span>
+          <span id="bagPrepaidVal">-₹0</span>
+        </div>
+        <div class="calc-row">
+          <span>Express Air Shipping:</span>
+          <span id="bagShipping">FREE</span>
+        </div>
+        <div class="calc-row" id="bagCodFeeRow" style="display: none;">
+          <span>COD Convenience Fee:</span>
+          <span id="bagCodFeeVal">₹0</span>
+        </div>
+        <div class="calc-row total-row">
+          <span>Grand Total (INR):</span>
+          <span id="bagFinalTotal">₹0</span>
+        </div>
+      </div>
+
+      <div class="total-savings-pill" id="bagTotalSavingsNote" style="display: none;"></div>
+
+      <button class="btn-proceed-checkout" id="btnBagProceedCheckout">
+        <span>Proceed To Indian Checkout</span>
+        <span>&rarr;</span>
+      </button>
+
+      <p class="bag-trust-line">
+        🔒 256-Bit Encrypted &bull; 100% Tax Compliant Indian GST Invoicing
+      </p>
+    </div>
+  </aside>
+
+  <!-- Quick View Modal (Bottle View, Size Switcher, Scent Pyramid, Indian PIN Code Checker) -->
+  <div class="friday-modal" id="fridayQuickViewModal">
+    <div class="modal-container-box qv-dialog-box">
+      <button class="btn-modal-close" onclick="FridayApp.closeQuickView();">&times;</button>
+      <div id="quickViewContent">
+        <!-- Injected dynamically by FridayApp.renderQuickViewDetails() -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Indian Payment Gateway Modal (UPI QR, Cards, Netbanking, COD) -->
+  <div class="friday-modal" id="indianPaymentModal">
+    <div class="modal-container-box">
+      <button class="btn-modal-close" id="closePaymentModal">&times;</button>
+      <div class="indian-checkout-layout">
+        
+        <!-- Left: Address & Payment Selection -->
+        <div class="checkout-form-side">
+          <h3 class="checkout-side-title">Pan-India Express Checkout</h3>
+          <p class="checkout-side-sub">Complete your order with 100% secure Indian payment processing.</p>
+
+          <!-- Shipping Details Form -->
+          <div class="address-grid">
+            <div class="form-group-full">
+              <label class="form-field-label">Full Name *</label>
+              <input type="text" id="custFullName" class="form-input" placeholder="e.g. Rahul Sharma" value="Rahul Sharma">
+            </div>
+            <div>
+              <label class="form-field-label">Mobile Number (+91) *</label>
+              <input type="tel" id="custPhone" class="form-input" placeholder="10-digit mobile" maxlength="10" value="9876543210">
+            </div>
+            <div>
+              <label class="form-field-label">Postal PIN Code *</label>
+              <input type="text" id="custPincode" class="form-input" placeholder="6-digit PIN" maxlength="6" value="400001">
+            </div>
+            <div class="form-group-full">
+              <label class="form-field-label">Complete Street Address / Flat / Building *</label>
+              <input type="text" id="custAddress" class="form-input" placeholder="Flat No., Wing, Street Landmark" value="Flat 402, Imperial Heights, MG Road">
+            </div>
+            <div>
+              <label class="form-field-label">City *</label>
+              <input type="text" class="form-input" value="Mumbai">
+            </div>
+            <div>
+              <label class="form-field-label">State *</label>
+              <select class="form-select">
+                <option selected>Maharashtra</option>
+                <option>Delhi (NCR)</option>
+                <option>Karnataka</option>
+                <option>Tamil Nadu</option>
+                <option>Gujarat</option>
+                <option>Uttar Pradesh</option>
+                <option>Telangana</option>
+                <option>West Bengal</option>
+                <option>Punjab</option>
+                <option>Rajasthan</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Payment Tabs (UPI, Cards, Netbanking, COD) -->
+          <label class="form-field-label" style="margin-bottom: 8px;">Select Payment Method (INR ₹):</label>
+          <div class="payment-tabs-header">
+            <button type="button" class="pay-method-tab active" data-method="upi">⚡ UPI</button>
+            <button type="button" class="pay-method-tab" data-method="card">💳 Cards / RuPay</button>
+            <button type="button" class="pay-method-tab" data-method="netbanking">🏦 NetBanking</button>
+            <button type="button" class="pay-method-tab" data-method="cod">💵 COD</button>
+          </div>
+
+          <!-- Panel 1: UPI -->
+          <div class="pay-content-panel active" data-method="upi">
+            <div class="upi-panel-box">
+              <div class="upi-qr-card">
+                <div style="font-size: 2.2rem;">📱</div>
+                <strong>Scan &amp; Pay</strong>
+                <small>Any UPI App</small>
+              </div>
+              <div style="flex: 1;">
+                <div class="upi-apps-row">
+                  <span class="upi-app-pill">Google Pay</span>
+                  <span class="upi-app-pill">PhonePe</span>
+                  <span class="upi-app-pill">Paytm</span>
+                  <span class="upi-app-pill">BHIM</span>
+                </div>
+                <label class="form-field-label">Enter UPI ID / VPA:</label>
+                <input type="text" class="form-input" placeholder="mobile@upi or username@okaxis" value="rahul@okhdfcbank">
+                <small style="color: var(--green-discount); font-weight: 600; display: block; margin-top: 4px;">
+                  ✔ Instant 5% Prepaid Discount Applied Automatically
+                </small>
+              </div>
+            </div>
+          </div>
+
+          <!-- Panel 2: Cards / RuPay -->
+          <div class="pay-content-panel" data-method="card">
+            <div class="card-fields-grid">
+              <div style="grid-column: 1 / -1;">
+                <label class="form-field-label">Card Number (RuPay, Visa, Mastercard)</label>
+                <input type="text" class="form-input" placeholder="XXXX XXXX XXXX XXXX" maxlength="19" value="4532 &bull;&bull;&bull;&bull; &bull;&bull;&bull;&bull; 8921">
+              </div>
+              <div>
+                <label class="form-field-label">Expiry (MM / YY)</label>
+                <input type="text" class="form-input" placeholder="MM/YY" maxlength="5" value="08/28">
+              </div>
+              <div>
+                <label class="form-field-label">CVV</label>
+                <input type="password" class="form-input" placeholder="•••" maxlength="3" value="123">
+              </div>
+            </div>
+          </div>
+
+          <!-- Panel 3: Net Banking -->
+          <div class="pay-content-panel" data-method="netbanking">
+            <label class="form-field-label">Select Your Bank:</label>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px;">
+              <button type="button" class="upi-app-pill" style="text-align: left; padding: 8px;">HDFC Bank</button>
+              <button type="button" class="upi-app-pill" style="text-align: left; padding: 8px;">State Bank of India</button>
+              <button type="button" class="upi-app-pill" style="text-align: left; padding: 8px;">ICICI Bank</button>
+              <button type="button" class="upi-app-pill" style="text-align: left; padding: 8px;">Axis Bank</button>
+            </div>
+          </div>
+
+          <!-- Panel 4: Cash on Delivery -->
+          <div class="pay-content-panel" data-method="cod">
+            <div class="cod-warning-box">
+              <strong>💵 Cash on Delivery Selected:</strong><br>
+              An automated SMS / WhatsApp OTP verification link will be dispatched to your phone before courier release. Please keep exact cash ready upon delivery.
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Right: Order Billing Summary in INR -->
+        <div class="checkout-summary-side">
+          <h4 class="summary-heading">Order Total (INR ₹)</h4>
+          
+          <div class="order-calc-table">
+            <div class="order-calc-row">
+              <span>Items Total:</span>
+              <span id="checkoutSubtotalAmount">₹0</span>
+            </div>
+            <div class="order-calc-row">
+              <span>GST (18% Included):</span>
+              <span>Included</span>
+            </div>
+            <div class="order-calc-row">
+              <span>Express Air Shipping:</span>
+              <span style="color: var(--green-discount); font-weight: 700;">FREE</span>
+            </div>
+            <div class="order-calc-row final">
+              <span>Total Payable:</span>
+              <span id="checkoutTotalAmount">₹0</span>
+            </div>
+          </div>
+
+          <button class="btn-pay-secure-inr" id="btnSubmitIndianPayment">
+            <span id="checkoutPayButtonLabel">Pay Securely via UPI</span>
+          </button>
+
+          <p class="security-footer-note">
+            🛡️ 100% RBI Compliant Indian Payment Gateway &bull; Instant WhatsApp Tracking Dossier
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- Order Success & GST Invoice Voucher Modal -->
+  <div class="friday-modal" id="orderSuccessModal">
+    <div class="modal-container-box order-success-dialog">
+      <div class="success-check-badge">✔</div>
+      <h2 class="success-title">Order Confirmed!</h2>
+      <div class="success-order-id-tag">Order Reference: <strong id="successOrderNumber">IMP-IN-839211</strong></div>
+
+      <div class="success-invoice-box">
+        <div id="successCustomerInfo"></div>
+        <div style="margin-top: 10px; border-top: 1px dashed #ccc; padding-top: 8px; color: #555;">
+          Your genuine perfume flacon has been securely packed in our temperature-controlled cellar and queued for BlueDart Air dispatch. A formal GST Tax Invoice &amp; tracking link have been transmitted to your mobile number.
+        </div>
+      </div>
+
+      <button class="btn-return-store" onclick="document.getElementById('orderSuccessModal').classList.remove('active'); document.body.style.overflow = '';">
+        Continue Shopping on IMPACT Luxury Perfume
+      </button>
+    </div>
+  </div>
+
+  <!-- Toast Notification Container -->
+  <div class="friday-toast-container" id="fridayToastContainer"></div>
+
+  <!-- Scripts -->
+  <script src="js/data.js"></script>
+  <script src="js/cart.js"></script>
+  <script src="js/filter.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

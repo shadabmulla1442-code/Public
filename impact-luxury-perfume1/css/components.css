@@ -1,0 +1,1327 @@
+/* ==========================================================================
+   FRIDAY CHARM - COMPONENTS STYLESHEET
+   Search Autocomplete, Cart Drawer, Indian Payment Gateway, Modals, Toasts
+   ========================================================================== */
+
+/* ==========================================================================
+   1. LIVE SEARCH AUTOCOMPLETE DROPDOWN
+   ========================================================================== */
+.search-suggestions-dropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  background: #ffffff;
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.14);
+  margin-top: 8px;
+  z-index: 150;
+  max-height: 440px;
+  overflow-y: auto;
+  display: none;
+  animation: dropdownFade 0.2s ease forwards;
+}
+
+.search-suggestions-dropdown.active {
+  display: block;
+}
+
+@keyframes dropdownFade {
+  from { opacity: 0; transform: translateY(-6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.search-section-header {
+  font-size: 0.68rem;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  font-weight: 700;
+  padding: 12px 16px 6px;
+  background: #fafafc;
+  border-bottom: 1px solid #f0f0f4;
+}
+
+.search-brands-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 10px 16px;
+  border-bottom: 1px solid #f0f0f4;
+}
+
+.search-brand-chip {
+  background: #f0f0f4;
+  border: 1px solid #e0e0e6;
+  color: #111;
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 5px 12px;
+  border-radius: 20px;
+}
+
+.search-brand-chip:hover {
+  background: #111;
+  color: #fff;
+}
+
+.search-results-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.search-item-row {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 12px 16px;
+  border-bottom: 1px solid #f3f3f7;
+  cursor: pointer;
+  transition: background 0.15s ease;
+}
+
+.search-item-row:hover {
+  background: #f8f8fb;
+}
+
+.search-item-bottle {
+  width: 44px;
+  height: 54px;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.search-mini-badge {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: #fff;
+}
+
+.search-item-meta {
+  flex: 1;
+}
+
+.search-item-brand {
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--gold-dark);
+  font-weight: 700;
+  display: block;
+}
+
+.search-item-title {
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--text-dark);
+  margin-bottom: 2px;
+}
+
+.search-item-notes {
+  font-size: 0.72rem;
+  color: var(--text-muted);
+}
+
+.search-item-pricing {
+  text-align: right;
+  display: flex;
+  flex-direction: column;
+}
+
+.search-price-inr {
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: #111;
+}
+
+.search-mrp-inr {
+  font-size: 0.75rem;
+  color: var(--text-light);
+  text-decoration: line-through;
+}
+
+.search-disc-badge {
+  font-size: 0.68rem;
+  font-weight: 700;
+  color: var(--green-discount);
+}
+
+.search-empty-state {
+  padding: 24px;
+  text-align: center;
+  color: var(--text-muted);
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+/* ==========================================================================
+   2. SHOPPING BAG SLIDE-OUT DRAWER
+   ========================================================================== */
+.bag-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(4px);
+  z-index: 200;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.35s ease;
+}
+
+.bag-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.bag-drawer {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 480px;
+  max-width: 100vw;
+  height: 100vh;
+  background: #ffffff;
+  z-index: 201;
+  display: flex;
+  flex-direction: column;
+  transform: translateX(100%);
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: -10px 0 35px rgba(0, 0, 0, 0.2);
+}
+
+.bag-drawer.open {
+  transform: translateX(0);
+}
+
+.bag-header {
+  padding: 20px 24px;
+  border-bottom: 1px solid var(--border-subtle);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #fafafc;
+}
+
+.bag-title {
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--text-dark);
+}
+
+.btn-close-bag {
+  font-size: 1.8rem;
+  color: #777;
+  line-height: 1;
+}
+
+.btn-close-bag:hover {
+  color: #000;
+}
+
+/* Free Express Shipping Bar */
+.bag-shipping-meter {
+  padding: 14px 24px;
+  background: #ecfdf5;
+  border-bottom: 1px solid #d1fae5;
+}
+
+.meter-text {
+  font-size: 0.78rem;
+  color: #065f46;
+  margin-bottom: 8px;
+}
+
+.meter-text strong {
+  color: #047857;
+}
+
+.meter-track {
+  width: 100%;
+  height: 6px;
+  background: #a7f3d0;
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.meter-fill {
+  height: 100%;
+  background: #059669;
+  width: 0%;
+  transition: width 0.3s ease;
+}
+
+/* Free Gift Banner (> ₹2,999) */
+.free-gift-banner {
+  background: #fefce8;
+  border-bottom: 1px solid #fef08a;
+  padding: 10px 24px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.gift-icon {
+  font-size: 1.4rem;
+}
+
+.gift-text {
+  font-size: 0.76rem;
+  color: #854d0e;
+  line-height: 1.3;
+}
+
+.gift-text strong {
+  display: block;
+  color: #713f12;
+}
+
+/* Cart Items Container */
+.bag-items-list {
+  flex: 1;
+  overflow-y: auto;
+  padding: 20px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.bag-empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  text-align: center;
+  padding: 40px;
+}
+
+.empty-icon {
+  font-size: 3rem;
+  margin-bottom: 16px;
+}
+
+.empty-title {
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  margin-bottom: 8px;
+}
+
+.empty-desc {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  margin-bottom: 24px;
+}
+
+.btn-start-shopping {
+  background: #111116;
+  color: #fff;
+  font-size: 0.82rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  padding: 12px 26px;
+  border-radius: var(--radius-sm);
+}
+
+/* Bag Item Row */
+.bag-item {
+  display: flex;
+  gap: 16px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid #f0f0f4;
+}
+
+.bag-item-bottle-thumb {
+  width: 60px;
+  height: 85px;
+  border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  flex-shrink: 0;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+}
+
+.thumb-cap {
+  position: absolute;
+  top: -8px;
+  width: 20px;
+  height: 8px;
+  border-radius: 1px;
+}
+
+.thumb-lbl {
+  font-size: 0.42rem;
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: 0.5px;
+  text-align: center;
+  padding: 0 4px;
+}
+
+.bag-item-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.bag-item-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 4px;
+}
+
+.bag-brand-tag {
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  color: var(--gold-dark);
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.bag-item-name {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--text-dark);
+}
+
+.bag-item-size {
+  font-size: 0.72rem;
+  color: var(--text-muted);
+}
+
+.bag-btn-remove {
+  font-size: 1.4rem;
+  color: #999;
+  line-height: 1;
+}
+
+.bag-btn-remove:hover {
+  color: #dc2626;
+}
+
+.bag-item-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: auto;
+  padding-top: 10px;
+}
+
+.bag-qty-stepper {
+  display: inline-flex;
+  align-items: center;
+  border: 1px solid #dcdce2;
+  border-radius: var(--radius-sm);
+  background: #fff;
+}
+
+.bag-qty-stepper button {
+  width: 26px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.9rem;
+  color: #333;
+}
+
+.bag-qty-stepper span {
+  padding: 0 8px;
+  font-size: 0.78rem;
+  font-weight: 600;
+}
+
+.bag-item-prices {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+}
+
+.bag-item-mrp {
+  font-size: 0.75rem;
+  color: #999;
+  text-decoration: line-through;
+}
+
+.bag-item-selling {
+  font-weight: 700;
+  font-size: 0.98rem;
+  color: #111;
+}
+
+/* Bag Footer & Indian Checkout Panel */
+.bag-footer {
+  padding: 20px 24px;
+  background: #fafafc;
+  border-top: 1px solid var(--border-subtle);
+}
+
+/* Payment Mode Switcher in Drawer */
+.pay-mode-selector {
+  background: #fff;
+  border: 1px solid #e2e2e8;
+  border-radius: var(--radius-sm);
+  padding: 8px 12px;
+  margin-bottom: 14px;
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.pay-mode-option {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.pay-mode-option input {
+  cursor: pointer;
+}
+
+.pay-mode-option .badge-5pct {
+  background: var(--green-discount);
+  color: #fff;
+  font-size: 0.65rem;
+  padding: 1px 5px;
+  border-radius: 2px;
+}
+
+/* Coupon input */
+.bag-coupon-row {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 14px;
+}
+
+.bag-coupon-input {
+  flex: 1;
+  border: 1px solid #d5d5de;
+  border-radius: var(--radius-sm);
+  padding: 8px 12px;
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  font-weight: 600;
+  outline: none;
+}
+
+.bag-coupon-input:focus {
+  border-color: #111;
+}
+
+.btn-apply-coupon {
+  background: #111;
+  color: #fff;
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  padding: 8px 14px;
+  border-radius: var(--radius-sm);
+}
+
+/* Calculation summary */
+.bag-calc-summary {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 16px;
+  font-size: 0.82rem;
+}
+
+.calc-row {
+  display: flex;
+  justify-content: space-between;
+  color: var(--text-body);
+}
+
+.calc-row.discount-row {
+  color: var(--green-discount);
+  font-weight: 600;
+}
+
+.btn-remove-coupon {
+  color: #dc2626;
+  margin-left: 4px;
+}
+
+.calc-row.total-row {
+  border-top: 1px solid #e0e0e6;
+  padding-top: 10px;
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: #111;
+}
+
+.total-savings-pill {
+  background: #ecfdf5;
+  color: #065f46;
+  padding: 6px 12px;
+  border-radius: var(--radius-sm);
+  font-size: 0.75rem;
+  text-align: center;
+  margin-bottom: 14px;
+}
+
+.btn-proceed-checkout {
+  width: 100%;
+  background: #111116;
+  color: var(--gold-light);
+  font-size: 0.88rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  padding: 14px;
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
+}
+
+.btn-proceed-checkout:hover {
+  background: #000;
+  transform: translateY(-2px);
+}
+
+.bag-trust-line {
+  margin-top: 10px;
+  font-size: 0.68rem;
+  color: var(--text-muted);
+  text-align: center;
+}
+
+/* ==========================================================================
+   3. INDIAN PAYMENT GATEWAY MODAL (UPI, CARDS, COD)
+   ========================================================================== */
+.friday-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.75);
+  backdrop-filter: blur(6px);
+  z-index: 300;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+  padding: 20px;
+}
+
+.friday-modal.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.modal-container-box {
+  background: #ffffff;
+  border-radius: var(--radius-md);
+  width: 100%;
+  max-width: 900px;
+  max-height: 92vh;
+  overflow-y: auto;
+  position: relative;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  animation: modalScale 0.25s ease forwards;
+}
+
+@keyframes modalScale {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+.btn-modal-close {
+  position: absolute;
+  top: 16px;
+  right: 20px;
+  font-size: 1.8rem;
+  color: #888;
+  line-height: 1;
+  z-index: 10;
+}
+
+.btn-modal-close:hover {
+  color: #000;
+}
+
+/* Indian Checkout Layout */
+.indian-checkout-layout {
+  display: grid;
+  grid-template-columns: 1.25fr 0.95fr;
+  min-height: 520px;
+}
+
+.checkout-form-side {
+  padding: 36px;
+  border-right: 1px solid var(--border-subtle);
+}
+
+.checkout-side-title {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  margin-bottom: 6px;
+}
+
+.checkout-side-sub {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  margin-bottom: 24px;
+}
+
+/* Delivery Address Grid */
+.address-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-bottom: 26px;
+}
+
+.form-group-full {
+  grid-column: 1 / -1;
+}
+
+.form-field-label {
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #444;
+  display: block;
+  margin-bottom: 4px;
+}
+
+.form-input, .form-select {
+  width: 100%;
+  border: 1.5px solid #d5d5de;
+  border-radius: var(--radius-sm);
+  padding: 9px 12px;
+  font-size: 0.85rem;
+  color: #111;
+  outline: none;
+}
+
+.form-input:focus, .form-select:focus {
+  border-color: #111;
+}
+
+/* Payment Method Tabs (UPI, Cards, Netbanking, COD) */
+.payment-tabs-header {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 6px;
+  margin-bottom: 16px;
+}
+
+.pay-method-tab {
+  background: #f4f4f7;
+  border: 1px solid #dcdce2;
+  padding: 8px 6px;
+  border-radius: var(--radius-sm);
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-align: center;
+  transition: var(--transition);
+}
+
+.pay-method-tab:hover {
+  background: #e8e8ee;
+}
+
+.pay-method-tab.active {
+  background: #111116;
+  color: #fff;
+  border-color: #111116;
+}
+
+/* Payment Panels */
+.pay-content-panel {
+  display: none;
+  background: #fbfbfd;
+  border: 1px solid #e5e5ec;
+  border-radius: var(--radius-sm);
+  padding: 20px;
+  margin-bottom: 24px;
+}
+
+.pay-content-panel.active {
+  display: block;
+}
+
+/* UPI QR & VPA Panel */
+.upi-panel-box {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.upi-qr-card {
+  width: 110px;
+  height: 110px;
+  background: #fff;
+  border: 1px solid #ccc;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.7rem;
+  padding: 6px;
+  text-align: center;
+}
+
+.upi-apps-row {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.upi-app-pill {
+  background: #fff;
+  border: 1px solid #d1d5db;
+  padding: 4px 10px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  border-radius: 4px;
+}
+
+/* Cards Panel */
+.card-fields-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+/* COD Panel */
+.cod-warning-box {
+  background: #fffbeb;
+  border: 1px solid #fde68a;
+  padding: 12px;
+  border-radius: var(--radius-sm);
+  font-size: 0.78rem;
+  color: #92400e;
+}
+
+/* Order Summary Column */
+.checkout-summary-side {
+  background: #fafafc;
+  padding: 36px;
+  display: flex;
+  flex-direction: column;
+}
+
+.summary-heading {
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  margin-bottom: 16px;
+}
+
+.order-calc-table {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  font-size: 0.85rem;
+  margin-bottom: 20px;
+}
+
+.order-calc-row {
+  display: flex;
+  justify-content: space-between;
+  color: var(--text-body);
+}
+
+.order-calc-row.final {
+  border-top: 1.5px solid #d5d5de;
+  padding-top: 12px;
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: #111;
+}
+
+.btn-pay-secure-inr {
+  width: 100%;
+  background: #059669;
+  color: #fff;
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  padding: 16px;
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  box-shadow: 0 4px 15px rgba(5, 150, 105, 0.3);
+}
+
+.btn-pay-secure-inr:hover {
+  background: #047857;
+}
+
+.security-footer-note {
+  font-size: 0.68rem;
+  color: var(--text-muted);
+  text-align: center;
+  margin-top: 14px;
+}
+
+/* ==========================================================================
+   4. ORDER SUCCESS / GST TAX INVOICE MODAL
+   ========================================================================== */
+.order-success-dialog {
+  max-width: 600px;
+  padding: 44px;
+  text-align: center;
+}
+
+.success-check-badge {
+  width: 68px;
+  height: 68px;
+  background: #ecfdf5;
+  color: #059669;
+  font-size: 2rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 16px;
+  box-shadow: 0 0 20px rgba(5, 150, 105, 0.2);
+}
+
+.success-title {
+  font-family: var(--font-display);
+  font-size: 1.85rem;
+  color: #111;
+  margin-bottom: 6px;
+}
+
+.success-order-id-tag {
+  font-size: 0.88rem;
+  color: var(--gold-dark);
+  font-weight: 700;
+  letter-spacing: 1px;
+  margin-bottom: 20px;
+}
+
+.success-invoice-box {
+  background: #f8f8fb;
+  border: 1px solid #e5e5ec;
+  border-radius: var(--radius-sm);
+  padding: 18px;
+  font-size: 0.82rem;
+  color: #333;
+  text-align: left;
+  line-height: 1.6;
+  margin-bottom: 24px;
+}
+
+.btn-return-store {
+  background: #111116;
+  color: #fff;
+  padding: 14px 28px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  border-radius: var(--radius-sm);
+}
+
+/* ==========================================================================
+   5. QUICK VIEW MODAL (WITH PIN CODE CHECKER)
+   ========================================================================== */
+.qv-dialog-box {
+  max-width: 940px;
+  padding: 36px;
+}
+
+.qv-grid {
+  display: grid;
+  grid-template-columns: 0.85fr 1.15fr;
+  gap: 36px;
+}
+
+.qv-bottle-column {
+  background: linear-gradient(180deg, #f7f7fa 0%, #ebebef 100%);
+  border-radius: var(--radius-sm);
+  padding: 40px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.qv-flacon-wrapper {
+  width: 160px;
+  height: 250px;
+  border-radius: 8px;
+  box-shadow: var(--shadow-flacon);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.qv-flacon-wrapper .flacon-cap {
+  position: absolute;
+  top: -42px;
+  width: 52px;
+  height: 28px;
+  border-radius: 2px;
+}
+
+.qv-authenticity-seal {
+  margin-top: 24px;
+  font-size: 0.72rem;
+  color: var(--text-dark);
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.qv-info-column {
+  display: flex;
+  flex-direction: column;
+}
+
+.qv-top-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 6px;
+}
+
+.qv-brand-title {
+  font-size: 0.78rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--gold-dark);
+  font-weight: 700;
+}
+
+.qv-rating-stars {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+.stars-gold {
+  color: #f59e0b;
+}
+
+.qv-product-name {
+  font-family: var(--font-display);
+  font-size: 1.7rem;
+  line-height: 1.25;
+  margin-bottom: 4px;
+}
+
+.qv-tagline {
+  font-size: 0.88rem;
+  font-style: italic;
+  color: #666;
+  margin-bottom: 14px;
+}
+
+.qv-description {
+  font-size: 0.85rem;
+  color: var(--text-body);
+  line-height: 1.6;
+  margin-bottom: 18px;
+}
+
+/* Quick View Price Box in INR */
+.qv-price-card {
+  background: #fdfaf3;
+  border: 1px solid #fae8b4;
+  padding: 14px 18px;
+  border-radius: var(--radius-sm);
+  margin-bottom: 18px;
+}
+
+.qv-price-row {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  margin-bottom: 2px;
+}
+
+.qv-selling-price {
+  font-size: 1.55rem;
+  font-weight: 800;
+  color: #111;
+}
+
+.qv-mrp-price {
+  font-size: 0.95rem;
+  color: #888;
+  text-decoration: line-through;
+}
+
+.qv-discount-badge {
+  background: var(--green-discount);
+  color: #fff;
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 2px 7px;
+  border-radius: 2px;
+}
+
+.qv-tax-note {
+  font-size: 0.7rem;
+  color: #78716c;
+}
+
+/* Size Switcher */
+.qv-sizes-wrap {
+  margin-bottom: 18px;
+}
+
+.qv-sizes-label {
+  font-size: 0.74rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #444;
+  display: block;
+  margin-bottom: 8px;
+}
+
+.qv-size-buttons-row {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.qv-size-btn {
+  background: #fff;
+  border: 1.5px solid #d5d5de;
+  padding: 8px 14px;
+  border-radius: var(--radius-sm);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: var(--transition);
+}
+
+.qv-size-btn:hover {
+  border-color: #111;
+}
+
+.qv-size-btn.active {
+  border-color: #111;
+  background: #111;
+  color: #fff;
+}
+
+.qv-size-btn .size-vol {
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+.qv-size-btn .size-cost {
+  font-size: 0.72rem;
+  opacity: 0.9;
+}
+
+/* Notes Breakdown */
+.qv-notes-breakdown {
+  background: #f8f8fb;
+  border: 1px solid #ececf2;
+  padding: 12px 16px;
+  border-radius: var(--radius-sm);
+  margin-bottom: 18px;
+  font-size: 0.78rem;
+}
+
+.qv-notes-head {
+  font-size: 0.7rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--gold-dark);
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+
+.notes-tier {
+  margin-bottom: 4px;
+  color: #444;
+}
+
+.tier-k {
+  color: #111;
+}
+
+/* Pincode Estimator */
+.qv-pincode-estimator {
+  margin-bottom: 22px;
+}
+
+.pincode-lbl {
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: #333;
+  display: block;
+  margin-bottom: 6px;
+}
+
+.pincode-input-row {
+  display: flex;
+  gap: 8px;
+  max-width: 320px;
+}
+
+.pincode-input-row input {
+  flex: 1;
+  border: 1px solid #ccc;
+  padding: 7px 12px;
+  font-size: 0.82rem;
+  border-radius: var(--radius-sm);
+  outline: none;
+}
+
+.btn-check-pincode {
+  background: #111;
+  color: #fff;
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 7px 14px;
+  border-radius: var(--radius-sm);
+}
+
+.pincode-feedback {
+  font-size: 0.72rem;
+  margin-top: 6px;
+}
+
+.pincode-feedback.success {
+  color: #059669;
+}
+
+.pincode-feedback.error {
+  color: #dc2626;
+}
+
+/* Quick View CTAs */
+.qv-cta-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.btn-qv-add-bag {
+  background: #fff;
+  border: 1.5px solid #111;
+  color: #111;
+  padding: 12px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  border-radius: var(--radius-sm);
+  text-align: center;
+}
+
+.btn-qv-add-bag:hover {
+  background: #f0f0f4;
+}
+
+.btn-qv-buy-now {
+  background: #111116;
+  color: var(--gold-light);
+  padding: 12px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  border-radius: var(--radius-sm);
+  text-align: center;
+}
+
+.btn-qv-buy-now:hover {
+  background: #000;
+}
+
+/* ==========================================================================
+   6. TOAST NOTIFICATIONS
+   ========================================================================== */
+.friday-toast-container {
+  position: fixed;
+  bottom: 24px;
+  left: 24px;
+  z-index: 400;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  pointer-events: none;
+}
+
+.friday-toast {
+  background: #111116;
+  color: #fff;
+  border-radius: var(--radius-sm);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.25);
+  display: flex;
+  overflow: hidden;
+  min-width: 260px;
+  max-width: 380px;
+  opacity: 0;
+  transform: translateY(16px);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  pointer-events: auto;
+}
+
+.friday-toast.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.toast-indicator {
+  width: 4px;
+  background: var(--green-discount);
+}
+
+.toast-body {
+  padding: 12px 16px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.toast-check {
+  color: #4ade80;
+  font-size: 0.95rem;
+}
+
+.toast-msg {
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .bag-drawer {
+    width: 100vw;
+  }
+  .indian-checkout-layout {
+    grid-template-columns: 1fr;
+  }
+  .checkout-form-side {
+    padding: 24px;
+  }
+  .checkout-summary-side {
+    padding: 24px;
+  }
+  .qv-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+}
